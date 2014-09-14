@@ -1,0 +1,16 @@
+#deflogin               on
+utf8                    on
+##login                  on
+#defmonitor              on
+#shell                   -$SHELL
+#scrollback              2000
+#startup_message         off
+## handle the Terminal.app scrollbar
+#termcapinfo             xterm ti@:te@
+#termcap  xterm 'AF=\E[3%dm:AB=\E[4%dm'
+#terminfo xterm 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
+#
+hardstatus alwayslastline "%D %d-%M-%Y %c [ %w ]"
+
+setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+
