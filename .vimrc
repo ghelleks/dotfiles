@@ -186,4 +186,6 @@ filetype plugin indent on
 syntax on
 
 " this needs to be set here, for some reason
-set rnu " relative line numbers
+if version >= 730
+  set rnu " relative line numbers
+endif
