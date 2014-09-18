@@ -1,5 +1,6 @@
 * **.vimrc**: based on https://github.com/liliakai/dotfiles. 
-  * requires 256-color [solarized colorscheme](https://github.com/altercation/solarized/tree/master/vim-colors-solarized) and [Terminal.app settings](https://github.com/altercation/solarized/tree/master/osx-terminal.app-colors-solarized/xterm-256color).
+  * see comments for dependencies
+  * on OS X, requires 256-color [Terminal.app settings](https://github.com/altercation/solarized/tree/master/osx-terminal.app-colors-solarized/xterm-256color).
 * **.bash_profile**
 * **.gitconfig**
 * **.screenrc**: allows for persistent ssh connections

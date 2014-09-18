@@ -1,8 +1,10 @@
 " INSTALLATION
-" mkdir ~/.vim/tmp
-" mkdir ~/.vim/tmp/backup
-" mkdir ~/.vim/tmp/swap
-
+" $ mkdir -p ~/.vim/tmp
+" $ mkdir -p ~/.vim/backup
+" $ mkdir -p ~/.vim/swap
+" $ git clone https://github.com/altercation/solarized/tree/master/vim-colors-solarized ~/.vim/bundle/vim-colors-solarized
+" $ git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
+" then install https://github.com/Lokaltog/powerline-fonts
 
 call pathogen#infect()
 call pathogen#helptags()
@@ -67,8 +69,8 @@ set tabstop=2                     " spaces per tab
 set expandtab                     " always use spaces instead of tabs
 set smarttab                      " <tab>
 set list                          " show whitespace
-set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
-set autoindent
+set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•,eol:$
+set noautoindent
 
 " Quickfix listing
 autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist
@@ -77,12 +79,14 @@ autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist
 " functionality
 filetype indent plugin on
 syntax on
-au BufReadPost *.ino set syntax=cpp " arduino
+autocmd BufNewFile,BufReadPost *.ino set syntax=cpp " arduino
+autocmd BufNewFile,BufReadPost *.md  set filetype=markdown
 
 " colorscheme
-set background=dark
 color solarized
+set background=light
 let g:solarized_termcolors=256
+let g:solarized_visibility = 'low'
 highlight MatchParen   cterm=bold      ctermfg=226
 highlight Pmenu                                      ctermbg=8
 highlight PmenuSel     cterm=bold      ctermfg=10    ctermbg=4
