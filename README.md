@@ -8,5 +8,6 @@
 * **.ssh/rc**: allows for persistent ssh connections, requires .bashrc stuff
 * **Archive Mail Message.scpt**: associate with Control-A for gmail-like archiving in Mail.app
 * **.toprc**
+* **osx-default.sh**: defaults for OS X, currently enabling Kerberos in Chrome
 
 
