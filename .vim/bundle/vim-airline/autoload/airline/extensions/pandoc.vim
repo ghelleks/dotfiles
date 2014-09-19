@@ -1,4 +1,5 @@
 " to use, add "call airline#extensions#pandoc#init(s:ext)" to extensions.vim
+" (courtesy " https://stackoverflow.com/questions/114431/fast-word-count-function-in-vim)
 
 let s:spc = g:airline_symbols.space
 
