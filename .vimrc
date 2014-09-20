@@ -35,6 +35,7 @@ set showmatch                         " show matching brackets
 set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o                   " patterns to ignore during file-navigation
+set noautochdir                       " don't automatically change the working directory, because that's crazy-making
 
 command Trim %s/\s\+$//
 
@@ -71,6 +72,7 @@ set smarttab                      " <tab>
 set list                          " show whitespace
 set listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•,eol:$
 set noautoindent
+set textwidth=0
 
 " Quickfix listing
 autocmd BufReadPost quickfix setlocal so=0 | setlocal nolist
@@ -81,6 +83,12 @@ filetype indent plugin on
 syntax on
 autocmd BufNewFile,BufReadPost *.ino set syntax=cpp " arduino
 autocmd BufNewFile,BufReadPost *.md  set filetype=markdown
+
+" for markdown, we want word wrapping and stuff. for code, we don't
+if &ft == "markdown"
+  set textwidth=78
+  set formatoptions+=t
+endif
 
 " colorscheme
 color solarized
@@ -113,8 +121,8 @@ if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
   let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
 endif
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
+"let g:CommandTAcceptSelectionMap = '<C-t>'
+"let g:CommandTAcceptSelectionTabMap = '<CR>'
 set wildignore+=vendor/rails/**,vendor/gems/**
 
 " set up :Ack command as replacement for :grep
@@ -146,9 +154,9 @@ nnoremap <C-kMinus> <C-w>-
 nnoremap <silent> <leader>j :call SwapWithNext()<CR>
 nnoremap <silent> <leader>k :call SwapWithPrevious()<CR>
 
-" Tab for tabs
-map <Tab> :tabn<CR>
-map <S-Tab> :tabp<CR>
+" Tab through buffers 
+map <Tab> :bn<CR>
+map <S-Tab> :bp<CR>
 
 " move increment/decrement so we can rebind them below
 nnoremap <C-j> <C-a>
@@ -179,6 +187,8 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
+" re-wrap paragraphs with \q
+nnoremap <leader>q gq}
 
 " go !
 " Some Linux distributions set filetype in /etc/vimrc.
@@ -194,13 +204,21 @@ if version >= 730
   set rnu " relative line numbers
 endif
 
-" for markdown, we want word wrapping and stuff. for code, we don't
-if &ft == "markdown"
-  set textwidth=78
-  set formatoptions+=t
-  " re-wrap paragraphs with q
-  remap q gq}
+" rather than create duplicate buffers, tell Command-T to jump to the one we already have open
+"set switchbuf=usetab
+function! s:GotoOrOpen(command, ...)
+  for file in a:000
+    if bufwinnr(file) != -1
+      exec "sb " . file
+    else
+      exec a:command . " " . file
+    endif
+  endfor
+endfunction
 
-else
-  set tw=0
-endif
+command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+
+let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
+let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tabe'
+let g:CommandTAcceptSelectionSplitCommand = 'GotoOrOpen sp'
+let g:CommandTAcceptSelectionVSplitCommand = 'GotoOrOpen vs'
