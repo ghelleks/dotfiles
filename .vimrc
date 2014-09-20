@@ -2,8 +2,8 @@
 " $ mkdir -p ~/.vim/tmp
 " $ mkdir -p ~/.vim/backup
 " $ mkdir -p ~/.vim/swap
-" $ git clone https://github.com/altercation/solarized/tree/master/vim-colors-solarized ~/.vim/bundle/vim-colors-solarized
-" $ git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
+" $ git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
+" $ git clone https://github.com/bling/vim-airline.git ~/.vim/bundle/vim-airline
 " then install https://github.com/Lokaltog/powerline-fonts
 
 call pathogen#infect()
