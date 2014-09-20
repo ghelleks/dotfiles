@@ -1,16 +1,13 @@
-#deflogin               on
+# set up 256 colors
+term "xterm-256color"
+attrcolor b ".I"
+
+# Use UTF-8 like a human in 2014
 utf8                    on
-##login                  on
-#defmonitor              on
-#shell                   -$SHELL
-#scrollback              2000
-#startup_message         off
-## handle the Terminal.app scrollbar
-#termcapinfo             xterm ti@:te@
-#termcap  xterm 'AF=\E[3%dm:AB=\E[4%dm'
-#terminfo xterm 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
-#
+
+# Host, date, window list
 hardstatus alwayslastline "%D %d-%M-%Y %c [ %w ]"
 
+# for persistent ssh connections
 setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 

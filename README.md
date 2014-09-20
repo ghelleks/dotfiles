@@ -5,8 +5,13 @@
   * has special rules for markdown and prose editing
   * on OS X, requires 256-color [Terminal.app settings](https://github.com/altercation/solarized/tree/master/osx-terminal.app-colors-solarized/xterm-256color).
 * **.bash_profile**
+  * use our own krb5.conf
+  * fancy prompts
+  * vi editing of the command line
 * **.gitconfig**
-* **.screenrc**: allows for persistent ssh connections
+* **.screenrc**
+  * enable 256 colors
+  * persistent ssh connections
 * **.ssh/config**: enabled forwarding agent
 * **.ssh/rc**: allows for persistent ssh connections, requires .bashrc stuff
 * **Archive Mail Message.scpt**: associate with Control-A for gmail-like archiving in Mail.app
