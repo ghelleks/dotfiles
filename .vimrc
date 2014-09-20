@@ -193,3 +193,14 @@ syntax on
 if version >= 730
   set rnu " relative line numbers
 endif
+
+" for markdown, we want word wrapping and stuff. for code, we don't
+if &ft == "markdown"
+  set textwidth=78
+  set formatoptions+=t
+  " re-wrap paragraphs with q
+  remap q gq}
+
+else
+  set tw=0
+endif
