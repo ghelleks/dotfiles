@@ -35,7 +35,9 @@ set showmatch                         " show matching brackets
 set showcmd                           " extra info in command line
 set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 set wildignore+=*.o                   " patterns to ignore during file-navigation
-set noautochdir                       " don't automatically change the working directory, because that's crazy-making
+if exists("+autochdir")
+  set noautochdir                       " don't automatically change the working directory, because that's crazy-making
+endif
 
 command Trim %s/\s\+$//
 
