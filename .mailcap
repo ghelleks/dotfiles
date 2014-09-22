@@ -1,0 +1,8 @@
+text/html; elinks -default-mime-type text/html %s; needsterminal; copiousoutput;
+application/vnd.oasis.opendocument.spreadsheet; ooffice %s
+application/vnd.oasis.opendocument.presentation; ooffice %s
+application/vnd.ms-powerpoint; ooffice %s
+application/vnd.sun.xml.writer; ooffice %s
+application/vnd.ms-excel; ooffice %s
+application/x-extension-sxc; ooffice %s
+application/vnd.oasis.opendocument.text; ooffice %s
