@@ -110,12 +110,13 @@ match OverLength /\%81v.*/
 
 " Command-T
 let g:CommandTMatchWindowReverse   = 1
-let g:CommandTMaxHeight            = 10
+let g:CommandTMaxHeight            = 10     " how big the command-t window will be
 let g:CommandTMaxFiles             = 50000
 let g:CommandTMaxCachedDirectories = 10
-let g:CommandTScanDotDirectories   = 1
-map <leader>r :CommandTFlush<CR>
-map <leader>f :CommandTBuffer<CR>
+let g:CommandTScanDotDirectories   = 1      " scan the dot directories
+let g:CommandTAlwaysShowDotFiles   = 1      " always show dot files
+map <leader>r :CommandTFlush<CR>            " \r to flush the command-t cache
+map <leader>f :CommandTBuffer<CR>           " \t to get a list of buffers
 if &term =~ "screen" || &term =~ "xterm"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
