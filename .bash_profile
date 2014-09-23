@@ -10,10 +10,11 @@ export PROMPT_COMMAND='printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}
 # make ls awesome
 if command -v dircolors >/dev/null; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)";
+  alias ls="ls -F --color"
 else command -v gdircolors >/dev/null; 
   test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
+  alias ls="ls -FG"
 fi
-alias ls="ls -FG"
 
 # persistent SSH sessions via tmux
 if [ ! -z "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ] ; then
