@@ -8,8 +8,10 @@ export KRB5_CONFIG=$HOME/Code/dotfiles/krb5.conf
 export PROMPT_COMMAND='printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
 
 # make ls awesome
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if command -v dircolors >/dev/null; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)";
+else command -v gdircolors >/dev/null; 
+  test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
 fi
 alias ls="ls -FG"
 
@@ -23,7 +25,7 @@ fi
 # add our own ~/bin
 export PATH=$PATH:~/bin
 
-if which rbenv > /dev/null 2>&1 ; then
+if command -v rbenv >/dev/null ; then
   # make rbenv work
   echo Setting up rbenv.
   export PATH="$HOME/.rbenv/bin:$PATH"
