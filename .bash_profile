@@ -13,7 +13,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # persistent SSH sessions via tmux
-f [ ! -z "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ] ; then
+if [ ! -z "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ] ; then
     unlink "$HOME/.ssh/ssh_auth_sock" 2>/dev/null
     ln -s "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
     export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
@@ -22,8 +22,11 @@ fi
 # add our own ~/bin
 export PATH=$PATH:~/bin
 
-# make rbenv work
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ ! `command -v rbenv >/dev/null 2>&1` ]; then
+  # make rbenv work
+  echo Setting up rbenv.
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
 
