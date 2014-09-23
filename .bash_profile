@@ -22,7 +22,7 @@ fi
 # add our own ~/bin
 export PATH=$PATH:~/bin
 
-if which rbenv > /dev/null; then
+if which rbenv > /dev/null 2>&1 ; then
   # make rbenv work
   echo Setting up rbenv.
   export PATH="$HOME/.rbenv/bin:$PATH"
