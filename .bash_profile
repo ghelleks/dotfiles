@@ -33,9 +33,7 @@ export PATH=$PATH:~/bin
 
 if command -v rbenv >/dev/null ; then
   # make rbenv work
-  echo Setting up rbenv.
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
-
 

@@ -17,6 +17,7 @@
 * **Archive Mail Message.scpt**: associate with Control-A for gmail-like archiving in Mail.app
 * **.toprc**
 * **osx-default.sh**: defaults for OS X, currently enabling Kerberos in Chrome
+* **.dircolors**: "brew install coreutils" to make this work on OS X
 
 [airline]: https://github.com/bling/vim-airline
 [Terminal.app settings]: https://github.com/altercation/solarized/tree/master/osx-terminal.app-colors-solarized/xterm-256color
