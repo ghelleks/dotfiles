@@ -1,3 +1,8 @@
+#if we have a .bashrc, go ahead and use it
+if [ -f $HOME/.bashrc ]; then
+  source $HOME/.bashrc
+fi
+
 # enable vi-like editing commands
 set -o vi
 
