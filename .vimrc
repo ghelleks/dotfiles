@@ -87,7 +87,7 @@ autocmd BufNewFile,BufReadPost *.ino set syntax=cpp " arduino
 autocmd BufNewFile,BufReadPost *.md  set filetype=markdown
 
 " for markdown, we want word wrapping and stuff. for code, we don't
-autocmd FileType markdown setlocal shiftwidth=3 tabstop=3 formatoptions+=t textwidth=78
+autocmd FileType markdown setlocal shiftwidth=4 tabstop=4 formatoptions+=t textwidth=78
 
 " colorscheme
 color solarized
