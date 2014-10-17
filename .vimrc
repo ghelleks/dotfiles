@@ -1,14 +1,20 @@
-" INSTALLATION
-" $ mkdir -p ~/.vim/tmp ~/.vim/backup ~/.vim/swap
+" # INSTALLATION
+" $ mkdir -p ~/.vim/tmp ~/.vim/backup ~/.vim/swap ~/.vim/autoload ~/.vim/bundle
 "
-" Solarized color scheme
+" # Pathogen, for package management
+" $ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+"
+" # Solarized color scheme
 " $ git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
 "
-" Airline, for sweet status bars
-" $ git clone https://github.com/bling/vim-airline.git ~/.vim/bundle/vim-airline
-" (then install https://github.com/Lokaltog/powerline-fonts to make the fonts great)
+" # Fugitive, because we live in git and it lives in us
+" $ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 "
-" vim-sensible, for sensible defaults
+" # Airline, for sweet status bars
+" $ git clone https://github.com/bling/vim-airline.git ~/.vim/bundle/vim-airline
+" # (then install https://github.com/Lokaltog/powerline-fonts to make the fonts great)
+"
+" # vim-sensible, for sensible defaults
 " $ git clone git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 
 call pathogen#infect()

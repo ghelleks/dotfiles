@@ -6,6 +6,11 @@ fi
 # enable vi-like editing commands
 set -o vi
 
+# use vim instead of vi because we're not animals
+if [ -x `which vim` ]; then
+  alias vi=`which vim`;
+fi
+
 # set kerberos
 export KRB5_CONFIG=$HOME/Code/dotfiles/krb5.conf
 
