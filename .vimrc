@@ -1,10 +1,15 @@
 " INSTALLATION
-" $ mkdir -p ~/.vim/tmp
-" $ mkdir -p ~/.vim/backup
-" $ mkdir -p ~/.vim/swap
+" $ mkdir -p ~/.vim/tmp ~/.vim/backup ~/.vim/swap
+"
+" Solarized color scheme
 " $ git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
+"
+" Airline, for sweet status bars
 " $ git clone https://github.com/bling/vim-airline.git ~/.vim/bundle/vim-airline
-" then install https://github.com/Lokaltog/powerline-fonts
+" (then install https://github.com/Lokaltog/powerline-fonts to make the fonts great)
+"
+" vim-sensible, for sensible defaults
+" $ git clone git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 
 call pathogen#infect()
 call pathogen#helptags()
