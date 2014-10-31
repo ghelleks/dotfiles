@@ -102,7 +102,7 @@ autocmd FileType markdown setlocal shiftwidth=4 tabstop=4 formatoptions+=t textw
 
 " colorscheme
 color solarized
-set background=light
+set background=dark
 let g:solarized_termcolors=256
 let g:solarized_visibility = 'low'
 highlight MatchParen   cterm=bold      ctermfg=226
