@@ -217,17 +217,22 @@ endif
 
 " rather than create duplicate buffers, tell Command-T to jump to the one we already have open
 "set switchbuf=usetab
-function! s:GotoOrOpen(command, ...)
-  for file in a:000
-    if bufwinnr(file) != -1
-      exec "sb " . file
-    else
-      exec a:command . " " . file
-    endif
-  endfor
+function! s:GotoOrOpen(command_and_args)
+  let l:command_and_args = split(a:command_and_args, '\v^\w+ \zs')
+  let l:command = l:command_and_args[0]
+  let l:file = l:command_and_args[1]
+
+  " bufwinnr() doesn't see windows in other tabs, meaning we open them again
+  " instead of switching to the other tab; but bufexists() sees hidden
+  " buffers, and if we try to open one of those, we get an unwanted split.
+  if bufwinnr(l:file) != -1 || (bufexists(l:file) && !s:BufHidden(l:file))
+    execute 'sb ' . l:file
+  else
+    execute l:command . l:file
+  endif
 endfunction
 
-command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<q-args>)
 
 let g:CommandTAcceptSelectionCommand = 'GotoOrOpen e'
 let g:CommandTAcceptSelectionTabCommand = 'GotoOrOpen tabe'
