@@ -6,3 +6,5 @@
 	smudge = git-media-smudge %f
 [push]
 	default = simple
+[core]
+	editor = vim
