@@ -17,6 +17,9 @@
 " # vim-sensible, for sensible defaults
 " $ git clone git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 
+set encoding=utf-8
+set fileencoding=utf-8
+
 call pathogen#infect()
 call pathogen#helptags()
 
