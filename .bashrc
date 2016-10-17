@@ -1,8 +1,3 @@
-#if we have a .bashrc, go ahead and use it
-if [ -f $HOME/.bashrc ]; then
-  source $HOME/.bashrc
-fi
-
 # enable vi-like editing commands
 set -o vi
 
@@ -40,5 +35,9 @@ if command -v rbenv >/dev/null ; then
   # make rbenv work
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
+fi
+
+if [ -f /etc/bashrc ]; then
+  source /etc/bashrc
 fi
 
