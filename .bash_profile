@@ -27,14 +27,14 @@ else command -v gdircolors >/dev/null;
 fi
 
 # persistent SSH sessions via tmux
-if [ ! -z "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ] ; then
-    unlink "$HOME/.ssh/ssh_auth_sock" 2>/dev/null
-    ln -s "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
-    export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
-fi
+#if [ ! -z "$SSH_AUTH_SOCK" -a "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ] ; then
+#    unlink "$HOME/.ssh/ssh_auth_sock" 2>/dev/null
+#    ln -s "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+#    export SSH_AUTH_SOCK="$HOME/.ssh/ssh_auth_sock"
+#fi
 
 # add our own ~/bin
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/bin/dgshowify
 
 if command -v rbenv >/dev/null ; then
   # make rbenv work
