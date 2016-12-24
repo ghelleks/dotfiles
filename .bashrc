@@ -1,6 +1,9 @@
 # enable vi-like editing commands
 set -o vi
 
+# load up ssh
+ssh-add -A
+
 # use vim instead of vi because we're not animals
 if [ -x `which vim` ]; then
   alias vi=`which vim`;
